@@ -1,0 +1,167 @@
+<head>
+	<title> HexBin Clock</title>
+	<link href='http://fonts.googleapis.com/css?family=Exo:100' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="script.js"></script> 
+	<style> /*
+.app {
+width : 350px;
+margin 0 auto;
+	}
+.btn {
+  position: relative;
+
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  
+  transition: background-color .3s;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #27ae60;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn:before {
+  content: "";
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+/* Styles, not important */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+/* Ciao amico lezzofolaio scvlacciatore, benvenuto a casa mia. Tieni pure le scarpe :D */
+
+html {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  
+  background-color: #ecf0f1;
+  color: #34495e;
+ // font-family: Trebuchet, Arial, sans-serif;
+  text-align: center;
+}
+
+h2 {
+ // font-weight: normal;
+}
+
+.btn.orange {
+  background-color: #e67e22;
+}
+
+.btn.orange:hover, .btn.orange:focus {
+  background-color: #d35400;
+}
+
+.btn.red {
+  background-color: #e74c3c;
+}
+
+.btn.red:hover, .btn.red:focus {
+  background-color: #c0392b;
+} */
+</style>
+</head>
+<body onload="initialize()" link="white" vlink="white">
+<div id="app">
+
+<div>
+<span id="clock" style="color:#FFF; font-size:xx-large">0011100:00001111:01010110</span> <!-- font-family:Verdana, Arial, Sans-Serif; font-size:xx-large -->
+</div>
+<div id="hex-clock-wrap"></div>
+<!--script src="hex-colour-clock.js" ></script-->
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function(){
+        "use strict";
+
+        Hex_Clock({
+            element: document.getElementById('hex-clock-wrap'),
+        }).init();
+
+    }, false);
+
+</script>
+<script>
+function mostra() {
+document.getElementById("hex-clock-wrap").style.display="block";
+}
+
+function nascondi() {
+document.getElementById("hex-clock-wrap").style.display="none";
+}
+</script> <span>
+<button class="btn" onclick="mostra()"> Show </button>
+<button class="btn red"onclick="nascondi()"> Hide </button> </span>
+<br>
+<a href="http://computerblog.ga"> by Sciking </a> <br>
+<hr>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+<input type="image" src="https://www.paypalobjects.com/it_IT/IT/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - Il metodo rapido, affidabile e innovativo per pagare e farsi pagare.">
+<img alt="" border="0" src="https://www.paypalobjects.com/it_IT/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div>
+       
+</body>
+</html>
