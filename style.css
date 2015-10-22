@@ -1,0 +1,31 @@
+html,
+body{
+    /* padding: 0;
+    margin: 0;
+    text-align: center; */
+    font-family: 'Exo', sans-serif;
+   /* height: 100%; */
+}
+
+.hex-clock-wrap{
+    margin: 0 auto;
+    padding: 6em;
+    color: #FFF;
+}
+
+.hex-clock-colour{
+    font-size: 4em;
+}
+
+.hex-section{
+    display: inline-block;
+}
+
+.hex-clock-time{
+    font-size: 1.2em;
+    opacity: .2;
+}
+
+.hex-seconds{
+    width: 1.2em;
+}
